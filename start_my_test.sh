@@ -1,0 +1,1 @@
+srun -n 64 --mpi=pmi2 ./mpi_hello_world

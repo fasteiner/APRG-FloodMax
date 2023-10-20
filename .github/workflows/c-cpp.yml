@@ -25,7 +25,7 @@ jobs:
         mkdir artifacts
         cp mpi_floodmax artifacts/
         cp mpi_floodmax_opt artifacts/
-        cp README.md artifacts/
+        cp ReadMe.md artifacts/
       shell: bash
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2

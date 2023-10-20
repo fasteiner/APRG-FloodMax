@@ -19,6 +19,7 @@ char **argv;
     //      3. compare and update
 
     // print max
+    printf( "Hello world from process %d of %d\n", rank, size );
     MPI_Finalize();
     return 0;
 }

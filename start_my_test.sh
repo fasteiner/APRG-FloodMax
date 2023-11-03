@@ -1,1 +1,1 @@
-srun -n 64 --mpi=pmi2 ./mpi_hello_world
+srun -n 64 --mpi=pmi2 ./out/mpi_floodmax

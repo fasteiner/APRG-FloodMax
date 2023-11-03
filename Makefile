@@ -3,10 +3,11 @@ MPICC?=mpicc.mpich
 
 all: ${EXECS}
 
-mpi_floodmax: FloodMax.c
-	${MPICC} -o mpi_floodmax FloodMax.c
-mpi_floodmax_opt: FloodMaxOpt.c
-	${MPICC} -o mpi_floodmax_opt FloodMaxOpt.c
+mpi_floodmax: src/FloodMax.c
+	${MPICC} -o out/mpi_floodmax src/FloodMax.c
+mpi_floodmax_opt: src/FloodMaxOpt.c
+	${MPICC} -o out/mpi_floodmax_opt src/FloodMaxOpt.c
 
 clean:
-	rm -f ${EXECS}
+	rm -f out/mpi_floodmax
+	rm -f out/mpi_floodmax_opt

@@ -1,0 +1,8 @@
+{
+    "name": "APRG Dev Container",
+    "dockerFile": ".docker/Dockerfile",
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["ms-vscode.cpptools"]
+  }

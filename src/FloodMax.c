@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mpi.h"
+#include <time.h>
 
-void electLeader(int rank, int size, int diameter, int *leader)
+int electLeader(int rank, int size, int diameter, int *leader)
 {
-    int i;
     // send uid to all neighbours
     int data;
-    for (int round = 0; round <= diameter; round++)
+    int calls = 0;
+    for (int round = 0; round < diameter; round++)
     {
         data = *leader;
         for (int i = 0; i < size; i++)
@@ -15,6 +16,7 @@ void electLeader(int rank, int size, int diameter, int *leader)
             if (i != rank)
             {
                 // i == neighbour rank
+                calls++;
                 MPI_Send(&data, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
             }
         }
@@ -32,6 +34,7 @@ void electLeader(int rank, int size, int diameter, int *leader)
             }
         }
     }
+    return calls;
 }
 
 int main(argc, argv)
@@ -43,11 +46,18 @@ char **argv;
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    diameter = atoi(argv[0]);
+    // diameter = atoi(argv[1]);
+    diameter = size;
 
     // code here
     int leader = rank;
-    electLeader(rank, size, diameter, &leader);
+    clock_t time = clock();
+    int count = electLeader(rank, size, diameter, &leader);
+    if (rank != leader)
+    {
+        MPI_Send(&count, 1, MPI_INT, leader, 0, MPI_COMM_WORLD);
+    }
+    time = clock() - time;
     // get diameter
 
     // loop i< diameter
@@ -58,7 +68,20 @@ char **argv;
     // print max
     if (rank == leader)
     {
+        int sumCount = count;
+        for (int i = 0; i < size; i++)
+        {
+            int subCount;
+            if (i != leader)
+            {
+
+                MPI_Recv(&subCount, 1, MPI_INT, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                sumCount += subCount;
+            }
+        }
         printf("Leader is %d\n", leader);
+        printf("Time taken: %f\n", ((double)time) / CLOCKS_PER_SEC);
+        printf("Total calls: %d\n", sumCount);
     }
     MPI_Finalize();
     return 0;

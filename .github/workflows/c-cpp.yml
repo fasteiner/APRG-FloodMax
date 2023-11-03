@@ -23,8 +23,7 @@ jobs:
     - name: Copy binaries and ReadMe
       run: |
         mkdir artifacts
-        cp mpi_floodmax artifacts/
-        cp mpi_floodmax_opt artifacts/
+        cp out/* artifacts/
         cp ReadMe.md artifacts/
       shell: bash
     - name: Upload a Build Artifact

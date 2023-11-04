@@ -56,4 +56,4 @@ We did this by adding checks before sending messages. The checks are as follows:
 - Dont send a message to a node that has already notified me about my current highest rank
 - Only send new messages when a higher id has been received
 
-An issue we ran into with this implementation was that the `MPI_Recv` function is blocking and we don't have the guarantee that all neighbors will send a message. To work around this issue we used the `MPI_Irecv` function which is non-blocking. To ensure that all messages are recieved we added a timeout before checking if all messages have been recieved with `MPI_Test`.
+An issue we ran into with this implementation was that the `MPI_Recv` function is blocking and we don't have the guarantee that all neighbors will send a message. To work around this issue we used the `MPI_Irecv` function which is non-blocking. To ensure that all messages are received we added a timeout before checking if all messages have been received with `MPI_Test`.

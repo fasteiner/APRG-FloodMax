@@ -4,9 +4,9 @@ The goal of this project was to develop the floodmax algorithm using mpi and run
 
 ## Authors
 
-- Elias Marcon MSc. | @eliasmarcon
-- Ing. Fabian Steiner BSc.| @fasteiner
-- Jan Langela Regincos | @janpilu
+- Elias Marcon MSc. | [@eliasmarcon](https://github.com/eliasmarcon)
+- Ing. Fabian Steiner BSc.| [@fasteiner](https://github.com/fasteiner/)
+- Jan Langela Regincos | [@janpilu](https://github.com/janpilu)
 
 ## How to build
 

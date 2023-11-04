@@ -28,6 +28,7 @@ jobs:
       run: |
         mkdir artifacts
         cp out/* artifacts/
+        cp Makefile artifacts/
         cp ReadMe.md artifacts/
       shell: bash
     - name: Upload a Build Artifact

@@ -2,6 +2,12 @@
 
 The goal of this project was to develop the floodmax algorithm using mpi and running it on a slearn cluster, as well as optimizing the algorithm to reduce the number of messages sent. The final step was to compare the performance of the two algorithms.
 
+## Authors
+
+- Elias Marcon MSc. | @eliasmarcon
+- Ing. Fabian Steiner BSc.| @fasteiner
+- Jan Langela Regincos | @janpilu
+
 ## How to build
 
 ### Prerequisites

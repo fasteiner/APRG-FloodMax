@@ -83,8 +83,6 @@ int electLeader(int rank, int size, int diameter, volatile int *leader)
                         changed = true;
                         *leader = recData[i];
                         updatedBy = i;
-                        if (rank == size - 1)
-                            printf("Process %d: Updated leader to %d, recieved from process %d\n", rank, *leader, updatedBy);
                     }
                     MPI_Irecv(&recData[i], 1, MPI_INT, i, 0, MPI_COMM_WORLD, &requests[i]);
 
@@ -114,14 +112,16 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    diameter = 4;
-
-    // Allow user to specify diameter
     if (argc > 1)
     {
+        // Check if a command-line argument for diameter is provided
         diameter = atoi(argv[1]);
     }
-    printf("Diameter: %d\n", diameter);
+    else
+    {
+        // If no argument is provided, set a default diameter
+        diameter = 10; // Change to your desired value
+    }
 
     volatile int leader = rank;
     clock_t time = clock();
@@ -134,10 +134,17 @@ int main(int argc, char **argv)
     // print leader and time taken
     if (rank == leader)
     {
+        printf("==================== Run Start ============================\n");
+        printf("=============== Optimized Floodmax ========================\n");
+        printf("Number of processes: %d\n", size);
+        printf("Network Diameter: %d\n", diameter);
         printf("Leader is %d\n", leader);
         printf("Time taken: %f\n", ((double)time) / CLOCKS_PER_SEC);
-        printf("Total calls: %d\n", sumCalls);
+        printf("Total Messages sent: %d\n", sumCalls);
+        printf("====================  Run End  ============================\n\n");
     }
+
     MPI_Finalize();
+
     return 0;
 }

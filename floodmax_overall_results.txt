@@ -1,0 +1,126 @@
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 10
+Network Diameter: 10
+Leader is 9
+Time taken: 0.000741
+Total Messages sent: 900
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 10
+Network Diameter: 10
+Leader is 9
+Time taken: 0.100356
+Total Messages sent: 162
+====================  Run End  ============================
+
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 25
+Network Diameter: 10
+Leader is 24
+Time taken: 0.007301
+Total Messages sent: 6000
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 25
+Network Diameter: 10
+Leader is 24
+Time taken: 0.108755
+Total Messages sent: 1152
+====================  Run End  ============================
+
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 50
+Network Diameter: 10
+Leader is 49
+Time taken: 0.024060
+Total Messages sent: 24500
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 50
+Network Diameter: 10
+Leader is 49
+Time taken: 0.115625
+Total Messages sent: 4802
+====================  Run End  ============================
+
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 75
+Network Diameter: 20
+Leader is 74
+Time taken: 0.367313
+Total Messages sent: 111000
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 75
+Network Diameter: 20
+Leader is 74
+Time taken: 0.220892
+Total Messages sent: 10952
+====================  Run End  ============================
+
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 100
+Network Diameter: 20
+Leader is 99
+Time taken: 1.845487
+Total Messages sent: 198000
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 100
+Network Diameter: 20
+Leader is 99
+Time taken: 0.250533
+Total Messages sent: 19602
+====================  Run End  ============================
+
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 125
+Network Diameter: 8
+Leader is 124
+Time taken: 0.723718
+Total Messages sent: 124000
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 125
+Network Diameter: 8
+Leader is 124
+Time taken: 0.137832
+Total Messages sent: 30752
+====================  Run End  ============================
+
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 150
+Network Diameter: 12
+Leader is 149
+Time taken: 1.558065
+Total Messages sent: 268200
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 150
+Network Diameter: 12
+Leader is 149
+Time taken: 0.195796
+Total Messages sent: 44550
+====================  Run End  ============================
+

@@ -1,30 +1,34 @@
 #!/bin/bash
 
 # Check for the number of tasks and diameter arguments
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <number_of_tasks> <diameter>"
+if [ "$#" -gt 3 ]; then
+    echo "Usage: $0 [<runtype>] [<number_of_tasks>] [<diameter>]"
     exit 1
 fi
 
-# Get the number of tasks and diameter from the command line
-num_tasks=$1
-diameter=$2
+# Set default values if arguments are not provided
+run_type=${1:-"local"}
+num_tasks=${2:-5}
+diameter=${3:-10}
 
 # Output file to save results
 output_file="./floodmax_overall_results.txt"
 
-if [ -n "$SLURM_JOB_ID" ]; then
+if [ "$run_type" == "cluster" ]; then
     # Running on the Slurm cluster
     echo "Running on the Slurm cluster..."
     echo "Running normal and optimized Floodmax with $num_tasks MPI tasks and diameter $diameter..."
     srun -n $num_tasks --mpi=pmi2 ./out/mpi_floodmax $diameter >> $output_file
     srun -n $num_tasks --mpi=pmi2 ./out/mpi_floodmax_opt $diameter >> $output_file
-else
+elif [ "$run_type" == "local" ]; then
     # Running locally
     echo "Running locally..."
     echo "Running normal and optimized Floodmax with $num_tasks MPI tasks and diameter $diameter..."
-    mpirun -n $num_tasks ./out/mpi_floodmax $diameter >> $output_file
-    mpirun -n $num_tasks ./out/mpi_floodmax_opt $diameter >> $output_file
+    mpirun -np $num_tasks ./out/mpi_floodmax $diameter >> $output_file
+    mpirun -np $num_tasks ./out/mpi_floodmax_opt $diameter >> $output_file
+else
+    echo "Invalid run type. Use 'local' or 'cluster'."
+    exit 1
 fi
 
 echo "Completed."

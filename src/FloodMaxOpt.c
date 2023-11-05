@@ -83,8 +83,6 @@ int electLeader(int rank, int size, int diameter, volatile int *leader)
                         changed = true;
                         *leader = recData[i];
                         updatedBy = i;
-                        if (rank == size - 1)
-                            printf("Process %d: Updated leader to %d, recieved from process %d\n", rank, *leader, updatedBy);
                     }
                     MPI_Irecv(&recData[i], 1, MPI_INT, i, 0, MPI_COMM_WORLD, &requests[i]);
 
@@ -142,7 +140,7 @@ int main(int argc, char **argv)
         printf("Network Diameter: %d\n", diameter);
         printf("Leader is %d\n", leader);
         printf("Time taken: %f\n", ((double)time) / CLOCKS_PER_SEC);
-        printf("Total Messages send: %d\n", sumCalls);
+        printf("Total Messages sent: %d\n", sumCalls);
         printf("====================  Run End  ============================\n\n");
     }
 

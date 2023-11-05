@@ -84,7 +84,7 @@ char **argv;
         printf("Network Diameter: %d\n", diameter);
         printf("Leader is %d\n", leader);
         printf("Time taken: %f\n", ((double)time) / CLOCKS_PER_SEC);
-        printf("Total Messages send: %d\n", sumCount);
+        printf("Total Messages sent: %d\n", sumCount);
         printf("==================  Run End  ===========================\n\n");
     }
     MPI_Finalize();

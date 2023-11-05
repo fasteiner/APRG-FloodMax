@@ -45,14 +45,16 @@ char **argv;
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    diameter = 4;
-
-    // Allow user to specify diameter
     if (argc > 1)
     {
+        // Check if a command-line argument for diameter is provided
         diameter = atoi(argv[1]);
     }
-    printf("Diameter: %d\n", diameter);
+    else
+    {
+        // If no argument is provided, set a default diameter
+        diameter = 10; // Change to your desired value
+    }
 
     int leader = rank;
     clock_t time = clock();
@@ -76,9 +78,14 @@ char **argv;
                 sumCount += subCount;
             }
         }
+        printf("================== Run Start ===========================\n");
+        printf("=============== Normal Floodmax ========================\n");
+        printf("Number of processes: %d\n", size);
+        printf("Network Diameter: %d\n", diameter);
         printf("Leader is %d\n", leader);
         printf("Time taken: %f\n", ((double)time) / CLOCKS_PER_SEC);
-        printf("Total calls: %d\n", sumCount);
+        printf("Total Messages send: %d\n", sumCount);
+        printf("==================  Run End  ===========================\n\n");
     }
     MPI_Finalize();
     return 0;

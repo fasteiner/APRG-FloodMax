@@ -76,7 +76,7 @@ The floodmax algorithm is used to elect a leader in a network. The algorithm wor
     2. Each node receives messages from its neighbors
 3. In the end, the leader is the node with the highest id
 
-Unfortunately, this algorithm is not very efficient. The amount of messages sent is $$O(diameter \cdot n \cdot e)$$ where n is the amount of nodes in the network.
+Unfortunately, this algorithm is not very efficient. The amount of messages sent is $O(diameter \cdot n \cdot e)$ where n is the amount of nodes in the network.
 
 ## Optimized Algorithm
 

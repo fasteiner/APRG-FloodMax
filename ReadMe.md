@@ -43,13 +43,12 @@ To use the provided Bash script for running MPI FloodMax algorithms, follow thes
 2. Open a terminal and navigate to the directory containing this bash script.
 
 3. Run Local Usage (does not save the output into the `floodmax_overall_results.txt` file):
+    - diameter: the diameter of the network (optional, default 10)
 
 ```sh
 mpirun -n 64 --mpi=pmi2 ./out/mpi_floodmax <diameter>
 mpirun -n 64 --mpi=pmi2 ./out/mpi_floodmax_opt <diameter>
 ```
-
-    diameter: the diameter of the network (optional, default 10)
 
 4. Run on the cluster:
 

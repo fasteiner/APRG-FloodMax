@@ -1,0 +1,18 @@
+================== Run Start ===========================
+=============== Normal Floodmax ========================
+Number of processes: 4
+Network Diameter: 2
+Leader is 3
+Time taken: 0.000033
+Total Messages send: 24
+==================  Run End  ===========================
+
+==================== Run Start ============================
+=============== Optimized Floodmax ========================
+Number of processes: 4
+Network Diameter: 2
+Leader is 3
+Time taken: 0.020008
+Total Messages send: 18
+====================  Run End  ============================
+

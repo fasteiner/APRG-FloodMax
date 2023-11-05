@@ -102,12 +102,9 @@ An issue we ran into with this implementation was that the `MPI_Recv` function i
 These results compare the performance of the "Normal Floodmax" and "Optimized Floodmax" algorithm with varying numbers of processes and network diameters (Results are in `floodmax_overall_results.txt` file). 
 The key observations from these comparisons are:
 
-- For a fixed network diameter:
-	- "Optimized Floodmax" consistently outperforms "Normal Floodmax" in terms of the total number of messages sent.
-	- The difference in message count between the two algorithms becomes more significant as the number of processes increases.
-
-- For a fixed number of processes:
-	- "Optimized Floodmax" substantially reduces the total message count, resulting in more efficient communication, especially in larger networks.
+- "Optimized Floodmax" consistently outperforms "Normal Floodmax" in terms of the total number of messages sent.
+- The difference in message count between the two algorithms becomes more significant as the number of processes increases.
+- "Optimized Floodmax" substantially reduces the total message count, resulting in more efficient communication, especially in larger networks.
 
 These results demonstrate the advantage of using the "Optimized Floodmax" algorithm, especially when dealing with a large number of processes and a substantial network diameter. The optimization leads to significant message reduction, which can be beneficial in distributed systems with communication constraints.
 

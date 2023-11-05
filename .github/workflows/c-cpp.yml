@@ -19,7 +19,7 @@ jobs:
       shell: bash
     - uses: actions/checkout@v3
     - name: make
-      run: make
+      run: make all
     - name: Copy binaries and ReadMe
       run: |
         mkdir artifacts

@@ -49,19 +49,19 @@ mpirun -n 64 --mpi=pmi2 ./out/mpi_floodmax <diameter>
 mpirun -n 64 --mpi=pmi2 ./out/mpi_floodmax_opt <diameter>
 ```
 
-diameter: the diameter of the network (optional, default 10)
+    diameter: the diameter of the network (optional, default 10)
 
 4. Run on the cluster:
 
 ```sh
 
 # Not optimized with diameter 4
-srun -n 64 --mpi=pmi2 ./out/mpi_floodmax <diameter>
+srun -n 64 --mpi=pmi2 ./out/mpi_floodmax 4
 
 # Optimized with diameter 4
-srun -n 64 --mpi=pmi2 ./out/mpi_floodmax_opt <diameter>
+srun -n 64 --mpi=pmi2 ./out/mpi_floodmax_opt 4
 
-# Run both algorithms 
+# Run both algorithms and save the results into the floodmax_overall_results.txt file
 ./start_algorithms.sh <number_of_processes> <diameter> (replace `<number_of_processes>` and `<diameter>` with the actual values)
 
 ```
@@ -76,7 +76,7 @@ The floodmax algorithm is used to elect a leader in a network. The algorithm wor
     2. Each node receives messages from its neighbors
 3. In the end, the leader is the node with the highest id
 
-Unfortunately, this algorithm is not very efficient. The amount of messages sent is `$$O(diameter \cdot n \cdot e)$$` where n is the amount of nodes in the network.
+Unfortunately, this algorithm is not very efficient. The amount of messages sent is $$O(diameter \cdot n \cdot e)$$ where n is the amount of nodes in the network.
 
 ## Optimized Algorithm
 
